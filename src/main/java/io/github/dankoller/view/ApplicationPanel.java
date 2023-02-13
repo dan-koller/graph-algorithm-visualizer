@@ -46,8 +46,13 @@ public class ApplicationPanel extends JPanel implements ApplicationModelListener
     public void onModelChangeSetAlgorithmState(AlgorithmModel algorithmModel) {
         if (algorithmModel.getState() == State.STOPPED) {
             removeMouseListener(runningAlgorithm);
-            runningAlgorithm.stopPlaying();
-            runningAlgorithm = null;
+            try {
+                runningAlgorithm.stopPlaying();
+            } catch (NullPointerException npe) {
+                System.out.println("No algorithm running: " + npe.getMessage());
+            } finally {
+                runningAlgorithm = null;
+            }
         }
     }
 
