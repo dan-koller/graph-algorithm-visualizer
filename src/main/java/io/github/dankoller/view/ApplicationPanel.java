@@ -50,7 +50,7 @@ public class ApplicationPanel extends JPanel implements ApplicationModelListener
             try {
                 runningAlgorithm.stopPlaying();
             } catch (NullPointerException npe) {
-                System.out.println("No algorithm running: " + npe.getMessage());
+                System.err.println("No algorithm running: " + npe.getMessage());
             } finally {
                 runningAlgorithm = null;
             }
