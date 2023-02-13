@@ -34,10 +34,10 @@ You can easily change modes using the 'Mode' menu. By default, you are in the 'A
 
 You can run the following algorithms on the graph:
 
-- Breadth First Search (BFS)
-- Depth First Search (DFS)
-- Dijkstra's Algorithm
-- Prim's Algorithm
+- [Breadth First Search (BFS)](https://en.wikipedia.org/wiki/Breadth-first_search)
+- [Depth First Search (DFS)](https://en.wikipedia.org/wiki/Depth-first_search)
+- [Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+- [Prim's Algorithm](https://en.wikipedia.org/wiki/Prim%27s_algorithm)
 
 Simply select the algorithm from the 'Algorithms' menu and select the source vertex. The algorithm will run and
 visualize the process and output the result.
