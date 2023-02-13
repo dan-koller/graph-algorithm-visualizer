@@ -22,7 +22,7 @@ public class Dialog {
             Mode.ADD_EDGE, "Enter Weight:"
     );
 
-    protected Optional<String> getLabelFromDialog(ApplicationPanel applicationPanel) {
+    public Optional<String> getLabelFromDialog(ApplicationPanel applicationPanel) {
         String label;
         Mode currentMode = applicationPanel.getMode();
         do {

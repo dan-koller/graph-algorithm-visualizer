@@ -1,14 +1,15 @@
 package io.github.dankoller.view;
 
 import io.github.dankoller.controller.algorithm.Algorithm;
-import io.github.dankoller.controller.GraphClickListener;
-import io.github.dankoller.controller.ApplicationModelListener;
+import io.github.dankoller.controller.listener.GraphClickListener;
+import io.github.dankoller.controller.listener.ApplicationModelListener;
 import io.github.dankoller.model.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
 import java.util.Optional;
+import java.util.Set;
 
 public class ApplicationPanel extends JPanel implements ApplicationModelListener {
     private final GraphModel model;
@@ -108,11 +109,11 @@ public class ApplicationPanel extends JPanel implements ApplicationModelListener
     private static Point getLabelPosition(Point start, Point end) {
         Point mid = new Point((start.x + end.x) / 2, (start.y + end.y) / 2);
         Point position;
-        int del = Vertex.getVertexRadius() / 10;
+        int offset = Vertex.getVertexRadius() / 10;
         if ((end.y - start.y) * (end.x - start.x) < 0) {
-            position = new Point(mid.x + del, mid.y + del);
+            position = new Point(mid.x + offset, mid.y + offset);
         } else {
-            position = new Point(mid.x - 3 * del, mid.y + del);
+            position = new Point(mid.x - 3 * offset, mid.y + offset);
         }
         return position;
     }
@@ -123,11 +124,8 @@ public class ApplicationPanel extends JPanel implements ApplicationModelListener
         repaint();
     }
 
-    /**
-     * delegate remove request to the model, which returns all the swing components, the panel must remove.
-     */
     public void removeEdge(Edge edge) {
-        var componentsToRemove = model.removeEdge(edge);
+        Set<Component> componentsToRemove = model.removeEdge(edge);
         componentsToRemove.forEach(this::remove);
         repaint();
     }
@@ -135,7 +133,6 @@ public class ApplicationPanel extends JPanel implements ApplicationModelListener
     @Override
     public void paintChildren(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-//        g2d.setColor(Vertex.getVertexColor());
         g2d.setStroke(new BasicStroke(Vertex.getVertexRadius() / 10f));
         model.getEdges().forEach(e -> {
             g2d.setColor(e.isSelected() ? Vertex.getVertexSelectedColor() : Vertex.getVertexColor());

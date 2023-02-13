@@ -9,8 +9,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class DijskstraAlgorithm extends Algorithm {
-    private final PriorityQueue<VertexAndRouteModel> vertexQueue
-            = new PriorityQueue<>(Comparator.comparingInt(VertexAndRouteModel::routeLength));
+    private final PriorityQueue<VertexAndRouteModel> vertexQueue =
+            new PriorityQueue<>(Comparator.comparingInt(VertexAndRouteModel::routeLength));
     private final Set<VertexModel> visitedNodes = new HashSet<>();
     private final Map<VertexModel, Integer> routeLengths = new HashMap<>();
 
@@ -32,7 +32,7 @@ public class DijskstraAlgorithm extends Algorithm {
         vertexQueue.offer(new VertexAndRouteModel(startVertex, 0));
         routeLengths.put(startVertex, 0);
         while (!vertexQueue.isEmpty()) {
-            var currentVertex = vertexQueue.poll().vertex();
+            VertexModel currentVertex = vertexQueue.poll().vertex();
             findNextUnvisitedNode(currentVertex);
             visitedNodes.add(currentVertex);
         }
@@ -50,7 +50,7 @@ public class DijskstraAlgorithm extends Algorithm {
 
     private void dijkstraUpdateNeighbor(VertexModel vertex, EdgeModel edgeToNeighbor, int edgeWeight) {
         int lengthOnThisRoute = routeLengths.get(vertex) + edgeWeight;
-        var neighbor = edgeToNeighbor.end();
+        VertexModel neighbor = edgeToNeighbor.end();
         int lengthSoFar = Optional.ofNullable(routeLengths.get(neighbor)).orElse(Integer.MAX_VALUE);
         if (lengthOnThisRoute < lengthSoFar) {
             vertexQueue.offer(new VertexAndRouteModel(neighbor, lengthOnThisRoute));

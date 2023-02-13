@@ -1,5 +1,6 @@
-package io.github.dankoller.controller;
+package io.github.dankoller.controller.listener;
 
+import io.github.dankoller.controller.Dialog;
 import io.github.dankoller.view.ApplicationPanel;
 import io.github.dankoller.view.Edge;
 import io.github.dankoller.view.Vertex;

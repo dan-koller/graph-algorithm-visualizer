@@ -1,4 +1,4 @@
-package io.github.dankoller.controller;
+package io.github.dankoller.controller.listener;
 
 import io.github.dankoller.model.ApplicationModel;
 import io.github.dankoller.model.Mode;

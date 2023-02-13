@@ -1,5 +1,7 @@
 package io.github.dankoller;
 
+import io.github.dankoller.view.MainFrame;
+
 import javax.swing.*;
 
 public class ApplicationRunner {

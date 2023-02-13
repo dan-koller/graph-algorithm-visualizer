@@ -1,7 +1,7 @@
-package io.github.dankoller.view;
+package io.github.dankoller.view.label;
 
-import io.github.dankoller.MainFrame;
-import io.github.dankoller.controller.ApplicationModelListener;
+import io.github.dankoller.view.MainFrame;
+import io.github.dankoller.controller.listener.ApplicationModelListener;
 import io.github.dankoller.model.AlgorithmModel;
 
 import javax.swing.*;

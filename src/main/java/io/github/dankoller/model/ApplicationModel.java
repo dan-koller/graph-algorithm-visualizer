@@ -1,7 +1,7 @@
 package io.github.dankoller.model;
 
 import io.github.dankoller.controller.algorithm.Algorithm;
-import io.github.dankoller.controller.ApplicationModelListener;
+import io.github.dankoller.controller.listener.ApplicationModelListener;
 
 import java.io.Serial;
 import java.io.Serializable;

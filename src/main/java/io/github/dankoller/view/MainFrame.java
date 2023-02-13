@@ -1,13 +1,12 @@
-package io.github.dankoller;
+package io.github.dankoller.view;
 
-import io.github.dankoller.controller.AlgorithmMenuItemListener;
-import io.github.dankoller.controller.ModeMenuItemListener;
+import io.github.dankoller.controller.listener.AlgorithmMenuItemListener;
+import io.github.dankoller.controller.listener.ModeMenuItemListener;
 import io.github.dankoller.model.AlgorithmType;
 import io.github.dankoller.model.ApplicationModel;
 import io.github.dankoller.model.Mode;
-import io.github.dankoller.view.ApplicationPanel;
-import io.github.dankoller.view.ResultLabel;
-import io.github.dankoller.view.StatusLabel;
+import io.github.dankoller.view.label.ResultLabel;
+import io.github.dankoller.view.label.StatusLabel;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,6 +1,6 @@
-package io.github.dankoller.view;
+package io.github.dankoller.view.label;
 
-import io.github.dankoller.controller.ApplicationModelListener;
+import io.github.dankoller.controller.listener.ApplicationModelListener;
 import io.github.dankoller.model.Mode;
 
 import javax.swing.*;
