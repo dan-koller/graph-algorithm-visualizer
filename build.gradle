@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application' // This is the plugin that allows us to run our application
 }
 
 group 'io.github.dankoller'
@@ -17,3 +18,5 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+mainClassName = 'io.github.dankoller.ApplicationRunner' // For running the application from the command line
