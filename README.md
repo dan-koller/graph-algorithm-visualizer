@@ -11,9 +11,10 @@ understand them better (I would have really appreciated this when I was learning
 Make sure your system has Java (17 or above) installed. You can download OpenJDK
 from [here](https://openjdk.java.net/install/).
 
-Download the latest release from _here_. **(Coming soon, stay tuned!)**
+- Download the latest release from this
+  repository's [releases](https://github.com/dan-koller/graph-algorithm-visualizer/releases/tag/v1.0-beta)
 
-In the meantime, you can clone this repository and build the project yourself.
+- Alternatively, you can clone this repository and build the project yourself:
 
 ```bash
 git clone https://github.com/dan-koller/graph-algorithm-visualizer
