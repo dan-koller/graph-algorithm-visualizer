@@ -20,6 +20,9 @@ public class MainFrame extends JFrame {
     private static final int PANEL_HEIGHT = 600;
     private final ApplicationModel applicationModel = new ApplicationModel();
 
+    /**
+     * Creates a new main frame for the application where the graph is displayed and menus are located.
+     */
     public MainFrame() {
         super(TITLE);
         setName(TITLE);
@@ -34,6 +37,11 @@ public class MainFrame extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Creates the status panel which displays the current mode of the application.
+     *
+     * @return The status panel
+     */
     private Component createStatusPanel() {
         JPanel statusPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 5, 0));
         statusPanel.setBackground(PANEL_COLOR);
@@ -43,6 +51,11 @@ public class MainFrame extends JFrame {
         return statusPanel;
     }
 
+    /**
+     * Creates the container for the graph panel.
+     *
+     * @return The container for the graph panel
+     */
     private Container createGraphContainer() {
         ApplicationPanel graphPanel = new ApplicationPanel(applicationModel.getModel());
         graphPanel.setBackground(PANEL_COLOR);
@@ -50,6 +63,11 @@ public class MainFrame extends JFrame {
         return graphPanel;
     }
 
+    /**
+     * Creates the display panel which displays the result of the current algorithm.
+     *
+     * @return The display panel
+     */
     private Component createDisplayPanel() {
         JPanel displayPanel = new JPanel(new FlowLayout());
         displayPanel.setBackground(PANEL_COLOR);
@@ -59,6 +77,11 @@ public class MainFrame extends JFrame {
         return displayPanel;
     }
 
+    /**
+     * Creates the main menu bar for the application.
+     *
+     * @return The main menu bar
+     */
     private JMenuBar createMenuBar() {
         JMenuBar menuBar = new JMenuBar();
         menuBar.setName("MenuBar");
@@ -68,6 +91,11 @@ public class MainFrame extends JFrame {
         return menuBar;
     }
 
+    /**
+     * Creates the file menu where the user can select to create a new graph or exit the application.
+     *
+     * @return The file menu
+     */
     private JMenu createFileMenu() {
         var fileMenu = new JMenu("File");
         fileMenu.setName("File");
@@ -77,6 +105,11 @@ public class MainFrame extends JFrame {
         return fileMenu;
     }
 
+    /**
+     * Create a mode menu where the user can add/remove vertices/edges or select no mode (reset mode).
+     *
+     * @return The mode menu
+     */
     private JMenu createModeMenu() {
         var modeMenu = new JMenu("Mode");
         modeMenu.setName("Mode");
@@ -88,6 +121,11 @@ public class MainFrame extends JFrame {
         return modeMenu;
     }
 
+    /**
+     * Creates the algorithm menu where the user can select an algorithm to visualize.
+     *
+     * @return The algorithm menu
+     */
     private JMenu createAlgorithmMenu() {
         var algorithmMenu = new JMenu("Algorithms");
         algorithmMenu.setName("Algorithms");
@@ -98,6 +136,13 @@ public class MainFrame extends JFrame {
         return algorithmMenu;
     }
 
+    /**
+     * Create a menu item with the given name and action listener.
+     *
+     * @param name           The name of the menu item
+     * @param actionListener The action listener for the menu item
+     * @return The menu item
+     */
     private JMenuItem createMenuItem(String name, ActionListener actionListener) {
         JMenuItem menuItem = new JMenuItem(name);
         menuItem.setName(name);
@@ -105,6 +150,12 @@ public class MainFrame extends JFrame {
         return menuItem;
     }
 
+    /**
+     * Create a menu item for the given mode.
+     *
+     * @param mode The mode for the menu item
+     * @return The menu item
+     */
     private JMenuItem createMenuItem(Mode mode) {
         JMenuItem menuItem = new JMenuItem(mode.getName());
         menuItem.setName(mode.getName());
@@ -112,6 +163,12 @@ public class MainFrame extends JFrame {
         return menuItem;
     }
 
+    /**
+     * Create a menu item for the given algorithm type.
+     *
+     * @param algorithmType The algorithm type for the menu item
+     * @return The menu item
+     */
     private Component createMenuItem(AlgorithmType algorithmType) {
         JMenuItem menuItem = new JMenuItem(algorithmType.getAlgorithmName());
         menuItem.setName(algorithmType.getAlgorithmName());

@@ -1,8 +1,11 @@
 package io.github.dankoller.model;
 
+/**
+ * The mode of the application.
+ */
 public enum Mode {
     NONE("None"),
-    RESET_MODE("Add a Vertex"), // TODO: Change this to "Reset Mode"
+    RESET_MODE("Add a Vertex"),
     ADD_VERTEX("Add a Vertex"),
     ADD_EDGE("Add an Edge"),
     REMOVE_VERTEX("Remove a Vertex"),

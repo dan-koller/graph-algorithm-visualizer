@@ -14,12 +14,20 @@ public class DijskstraAlgorithm extends Algorithm {
     private final Set<VertexModel> visitedNodes = new HashSet<>();
     private final Map<VertexModel, Integer> routeLengths = new HashMap<>();
 
+    /**
+     * Resets the collections (vertices, visited nodes, route lengths) to their initial state.
+     */
     private void resetCollections() {
         vertexQueue.clear();
         visitedNodes.clear();
         routeLengths.clear();
     }
 
+    /**
+     * Performs the Dijkstra algorithm on the given vertex.
+     *
+     * @param vertex The vertex to start the algorithm from
+     */
     @Override
     public void performAlgorithm(Vertex vertex) {
         resetCollections();
@@ -27,6 +35,12 @@ public class DijskstraAlgorithm extends Algorithm {
         getPlayer().play(new ArrayDeque<>());
     }
 
+    /**
+     * Calculates the route for the Dijkstra algorithm.
+     *
+     * @param vertex The vertex to start the algorithm from
+     * @return The route as a string
+     */
     private String dijkstraRoute(Vertex vertex) {
         var startVertex = getApplicationModel().getModel().getModelVertex(vertex);
         vertexQueue.offer(new VertexAndRouteModel(startVertex, 0));
@@ -42,12 +56,24 @@ public class DijskstraAlgorithm extends Algorithm {
                 .collect(Collectors.joining(", "));
     }
 
+    /**
+     * Searches for the next unvisited node and updates the route lengths.
+     *
+     * @param vertex The vertex to search from
+     */
     private void findNextUnvisitedNode(VertexModel vertex) {
         vertex.getEdges().stream()
                 .filter(edge -> !visitedNodes.contains(edge.end()))
                 .forEach(edge -> dijkstraUpdateNeighbor(vertex, edge, Integer.parseInt(edge.weightLabel().getText())));
     }
 
+    /**
+     * Updates the route length for the given neighbor according to the Dijkstra algorithm.
+     *
+     * @param vertex         The vertex to search from
+     * @param edgeToNeighbor The edge to the neighbor
+     * @param edgeWeight     The weight of the edge
+     */
     private void dijkstraUpdateNeighbor(VertexModel vertex, EdgeModel edgeToNeighbor, int edgeWeight) {
         int lengthOnThisRoute = routeLengths.get(vertex) + edgeWeight;
         VertexModel neighbor = edgeToNeighbor.end();

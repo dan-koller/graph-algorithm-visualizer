@@ -14,11 +14,22 @@ public abstract class Algorithm extends MouseAdapter {
     private String algorithmResult;
     private final AlgorithmPlayer algorithmPlayer = new AlgorithmPlayer(this);
 
+    /**
+     * Sets the application model for the algorithm.
+     *
+     * @param applicationModel The application model
+     * @return The selected algorithm
+     */
     public Algorithm setApplicationModel(ApplicationModel applicationModel) {
         this.applicationModel = applicationModel;
         return this;
     }
 
+    /**
+     * Handles mouse clicks on the application panel.
+     *
+     * @param event The mouse event
+     */
     @Override
     public void mouseClicked(MouseEvent event) {
         applicationPanel.getVertexAt(event.getPoint()).ifPresent(vertex -> {
@@ -28,33 +39,62 @@ public abstract class Algorithm extends MouseAdapter {
         });
     }
 
-    // Implement this method to perform the algorithm
+    /**
+     * Performs the algorithm on the given vertex. Implement this method to perform the algorithm
+     *
+     * @param vertex The vertex to start the algorithm from
+     */
     protected abstract void performAlgorithm(Vertex vertex);
 
+    /**
+     * Propagates the result of the algorithm to the application model.
+     */
     public void propagateResult() {
         applicationModel.propagateAlgorithmResult(algorithmResult);
     }
 
+    /**
+     * Stops the algorithm player.
+     */
     public void stopPlaying() {
         if (algorithmPlayer.timer != null) {
             algorithmPlayer.timer.stop();
         }
     }
 
-    // Getters and setters
-    public void setAlgorithmResult(String algorithmResult) { // may be protected
+    /**
+     * Set the algorithm result for the algorithm.
+     *
+     * @param algorithmResult The algorithm result
+     */
+    protected void setAlgorithmResult(String algorithmResult) {
         this.algorithmResult = algorithmResult;
     }
 
+    /**
+     * Set the application panel for the algorithm.
+     *
+     * @param applicationPanel The application panel the player is playing on
+     */
     public void setApplicationPanel(ApplicationPanel applicationPanel) {
         this.applicationPanel = applicationPanel;
     }
 
-    public ApplicationModel getApplicationModel() {
+    /**
+     * Get the application model for the algorithm.
+     *
+     * @return The application model the player is playing on
+     */
+    protected ApplicationModel getApplicationModel() {
         return applicationModel;
     }
 
-    public AlgorithmPlayer getPlayer() {
+    /**
+     * Get the algorithm player for the algorithm.
+     *
+     * @return The given algorithm player
+     */
+    protected AlgorithmPlayer getPlayer() {
         return algorithmPlayer;
     }
 }

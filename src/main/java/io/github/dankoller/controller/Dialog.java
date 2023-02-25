@@ -22,6 +22,13 @@ public class Dialog {
             Mode.ADD_EDGE, "Enter Weight:"
     );
 
+    /**
+     * This method handles the creation of a dialog box for the user to enter a label for a vertex or edge.
+     * The label either represents the ID of a vertex or the weight of an edge.
+     *
+     * @param applicationPanel The ApplicationPanel
+     * @return The label entered by the user
+     */
     public Optional<String> getLabelFromDialog(ApplicationPanel applicationPanel) {
         String label;
         Mode currentMode = applicationPanel.getMode();

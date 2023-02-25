@@ -8,6 +8,11 @@ import java.util.Queue;
 import java.util.stream.Collectors;
 
 public class DepthFirstSearch extends Algorithm {
+    /**
+     * Performs the Depth First Search algorithm on the given vertex.
+     *
+     * @param vertex The vertex to start the algorithm from
+     */
     @Override
     public void performAlgorithm(Vertex vertex) {
         Queue<EdgeModel> traversal = getApplicationModel().getModel().depthFirstSearch(vertex);
